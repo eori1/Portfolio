@@ -56,7 +56,7 @@ body {
     border-right: 2px solid #ff6b6b;
     position: relative;
     z-index: 1;
-    overflow-y: auto;
+    overflow: hidden;
     height: 100vh;
 }
 
@@ -142,52 +142,58 @@ body {
     border-radius: 8px 0 0 8px;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    transform: rotate(-1deg);
     z-index: 1;
 }
 
 .nav-link:hover {
-    transform: rotate(-1deg) translateX(8px);
     box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
     z-index: 2;
 }
 
 .nav-link.active {
     font-weight: 600;
-    transform: rotate(-1deg) translateX(12px);
     box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
     z-index: 3;
 }
 
-/* Individual bookmark colors */
+/* Individual bookmark colors with crooked positioning */
 .nav-link[href="#about"] {
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
     border-color: #2196f3;
+    transform: rotate(-2.5deg);
+    margin-top: 3px;
 }
 
 .nav-link[href="#about"]:hover {
     background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+    transform: rotate(-2.5deg) translateX(8px);
 }
 
 .nav-link[href="#projects"] {
     background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
     border-color: #4caf50;
+    transform: rotate(1.8deg);
+    margin-top: -2px;
+    margin-left: 4px;
 }
 
 .nav-link[href="#projects"]:hover {
     background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+    transform: rotate(1.8deg) translateX(8px);
 }
 
 .nav-link.active[href="#about"] {
     background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
     color: white;
     border-color: #0d47a1;
+    transform: rotate(-2.5deg) translateX(12px);
 }
 
 .nav-link.active[href="#projects"] {
     background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
     color: white;
     border-color: #1b5e20;
+    transform: rotate(1.8deg) translateX(12px);
 }
 
 
