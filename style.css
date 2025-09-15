@@ -1,0 +1,885 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'WimpyKid Regular', cursive;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Notebook container */
+.notebook-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, 
+        #fff 0%, 
+        #fff 280px, 
+        #ff6b6b 280px, 
+        #ff6b6b 284px, 
+        #fff 284px, 
+        #fff 100%);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add horizontal lines for notebook paper effect */
+.notebook-container::before {
+    content: '';
+    position: absolute;
+    left: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        #e8e8e8 31px,
+        #e8e8e8 32px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 280px;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-right: 2px solid #ff6b6b;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/* Pencil scribbles container */
+.pencil-scribbles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pencil-scribbles svg {
+    filter: blur(0.3px); /* Slight blur for pencil effect */
+}
+
+/* Profile sketch */
+.profile-sketch {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-circle {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-2deg);
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Navigation styles */
+.navigation {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.nav-title {
+    font-family: 'WimpyKidDialogue Regular', cursive;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-decoration-color: #333;
+    text-decoration-thickness: 3px;
+    transform: rotate(-1deg);
+}
+
+.nav-list {
+    list-style: none;
+    position: relative;
+}
+
+.nav-list li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* Bookmark-style navigation links */
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    padding: 12px 20px 12px 15px;
+    position: relative;
+    border: 2px solid #333;
+    border-right: none;
+    margin-right: -30px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    z-index: 1;
+}
+
+.nav-link:hover {
+    transform: rotate(-1deg) translateX(8px);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+
+.nav-link.active {
+    font-weight: 600;
+    transform: rotate(-1deg) translateX(12px);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    z-index: 3;
+}
+
+/* Individual bookmark colors */
+.nav-link[href="#about"] {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #2196f3;
+}
+
+.nav-link[href="#about"]:hover {
+    background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+}
+
+.nav-link[href="#projects"] {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border-color: #4caf50;
+}
+
+.nav-link[href="#projects"]:hover {
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+}
+
+.nav-link.active[href="#about"] {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    color: white;
+    border-color: #0d47a1;
+}
+
+.nav-link.active[href="#projects"] {
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+    color: white;
+    border-color: #1b5e20;
+}
+
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 40px 60px 40px 40px;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.red-margin-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff6b6b;
+}
+
+/* Header */
+.page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.main-title {
+    font-family: 'WimpyKidDialogue Regular', cursive;
+    font-size: 42px;
+    color: #333;
+    transform: rotate(-1deg);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+/* Content sections */
+.content-section {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'WimpyKidDialogue Regular', cursive;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-decoration-color: #333;
+    text-decoration-thickness: 2px;
+    transform: rotate(-0.5deg);
+    background: rgba(255, 255, 0, 0.3);
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: -10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section-title:hover {
+    transform: rotate(-0.5deg) scale(1.02);
+}
+
+.about-text {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    transform: rotate(-0.2deg);
+}
+
+.interests-list {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.interests-list li {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 12px;
+    position: relative;
+    line-height: 1.6;
+    transform: rotate(-0.1deg);
+}
+
+.interests-list li::before {
+    content: '•';
+    position: absolute;
+    left: -15px;
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+/* Project items */
+.project-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.project-title {
+    font-family: 'WimpyKidDialogue Regular', cursive;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    transform: rotate(-0.3deg);
+}
+
+.github-link {
+    color: #4a90e2;
+    text-decoration: underline;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 10px;
+    transform: rotate(0.2deg);
+}
+
+.github-link:hover {
+    color: #2c5aa0;
+}
+
+.screenshot-btn {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'WimpyKid Regular', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.screenshot-btn:hover {
+    background: #2c5aa0;
+    transform: rotate(-1deg) translateY(-2px);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.extended-essay {
+    background: rgba(255, 255, 0, 0.1);
+    padding: 20px;
+    border-left: 4px solid #ffeb3b;
+    margin-left: -20px;
+    transform: rotate(-0.2deg);
+}
+
+.project-description {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.read-link {
+    color: #4a90e2;
+    text-decoration: underline;
+}
+
+.read-link:hover {
+    color: #2c5aa0;
+}
+
+/* Links section */
+.links-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.icon-sketch {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #333;
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+    transform: rotate(-2deg);
+}
+
+.icon-sketch::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 2px solid #333;
+    border-radius: 4px;
+}
+
+/* GitHub icon */
+.github-sketch::after {
+    content: 'GH';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* LinkedIn icon */
+.linkedin-sketch::after {
+    content: 'LI';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Twitter icon */
+.twitter-sketch::after {
+    content: 'TW';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Email icon */
+.email-sketch::after {
+    content: '@';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Doodles Footer */
+.doodles-footer {
+    margin-top: 30px;
+    padding: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.doodle {
+    max-width: 120px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+}
+
+.doodle:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.doodle-1:hover {
+    transform: rotate(0deg) scale(2.8) !important;
+}
+
+.doodle-2:hover {
+    transform: rotate(0deg) scale(2.5) !important;
+}
+
+.doodle-3:hover {
+    transform: rotate(0deg) scale(2.1) !important;
+}
+
+.doodle-4:hover {
+    transform: rotate(0deg) scale(1.9) !important;
+}
+
+/* Individual doodle rotations and sizes */
+.doodle-1 {
+    transform: rotate(-12deg) scale(2.5);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.doodle-2 {
+    transform: rotate(8deg) scale(2.2);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.doodle-3 {
+    transform: rotate(-18deg) scale(1.8);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.doodle-4 {
+    transform: rotate(15deg) scale(1.6);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Sticky Notes Projects Page */
+.projects-page {
+    padding: 20px 0;
+}
+
+.sticky-notes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sticky-note {
+    width: 100%;
+    min-height: 380px;
+    padding: 25px;
+    border-radius: 0;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    position: relative;
+    font-family: 'WimpyKid Regular', cursive;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.sticky-note:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Sticky note colors */
+.yellow-note {
+    background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+    border-left: 4px solid #ffeb3b;
+}
+
+.pink-note {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+    border-left: 4px solid #e91e63;
+}
+
+.green-note {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border-left: 4px solid #4caf50;
+}
+
+.blue-note {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left: 4px solid #2196f3;
+}
+
+/* Rotations */
+.rotate-left {
+    transform: rotate(-2deg);
+}
+
+.rotate-right {
+    transform: rotate(2deg);
+}
+
+/* Sticky note header */
+.sticky-note-header {
+    border-bottom: 2px dashed rgba(0,0,0,0.2);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.sticky-title {
+    font-family: 'WimpyKidDialogue Regular', cursive;
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    transform: rotate(-1deg);
+}
+
+/* Sticky note content */
+.sticky-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-image-placeholder {
+    width: 120px;
+    height: 120px;
+    border: 3px dashed rgba(0,0,0,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    background: rgba(255,255,255,0.5);
+    font-size: 40px;
+    overflow: visible;
+}
+
+/* Taped photo effect */
+.taped-photo {
+    border: none !important;
+    background: #fff !important;
+    border-radius: 3px !important;
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.15),
+        0 0 0 3px #fff;
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+    overflow: visible;
+}
+
+.taped-photo:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* Individual photo sizes based on aspect ratios */
+.yellow-note .taped-photo {
+    width: 140px;
+    height: 80px;
+    transform: rotate(-5deg);
+}
+
+.pink-note .taped-photo {
+    width: 110px;
+    height: 100px;
+    transform: rotate(3deg);
+}
+
+.green-note .taped-photo {
+    width: 120px;
+    height: 90px;
+    transform: rotate(-2deg);
+}
+
+/* Tape strips */
+.taped-photo::before,
+.taped-photo::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 
+        0 1px 3px rgba(0,0,0,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    z-index: 100;
+}
+
+/* Top tape strip */
+.taped-photo::before {
+    top: -8px;
+    left: 20%;
+    width: 35px;
+    height: 16px;
+    transform: rotate(-15deg);
+    border-radius: 1px;
+}
+
+/* Bottom tape strip */
+.taped-photo::after {
+    bottom: -8px;
+    right: 15%;
+    width: 40px;
+    height: 16px;
+    transform: rotate(12deg);
+    border-radius: 1px;
+}
+
+/* Custom tape positions for different photos */
+.yellow-note .taped-photo::before {
+    left: 15%;
+    width: 45px;
+    transform: rotate(-20deg);
+}
+
+.yellow-note .taped-photo::after {
+    right: 10%;
+    width: 35px;
+    transform: rotate(18deg);
+}
+
+.pink-note .taped-photo::before {
+    left: 25%;
+    top: -6px;
+    width: 30px;
+    transform: rotate(-10deg);
+}
+
+.pink-note .taped-photo::after {
+    right: 20%;
+    bottom: -6px;
+    width: 35px;
+    transform: rotate(8deg);
+}
+
+.green-note .taped-photo::before {
+    left: 18%;
+    width: 38px;
+    transform: rotate(-18deg);
+}
+
+.green-note .taped-photo::after {
+    right: 12%;
+    width: 42px;
+    transform: rotate(15deg);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 7px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.sticky-description {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
+    text-align: center;
+    transform: rotate(-0.5deg);
+}
+
+/* Sticky note buttons */
+.sticky-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.sticky-btn {
+    padding: 10px 20px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    transform: rotate(-1deg);
+}
+
+.github-btn {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+.github-btn:hover {
+    background: #555;
+    transform: rotate(-1deg) translateY(-2px);
+}
+
+.demo-btn {
+    background: transparent;
+    color: #333;
+    border-color: #333;
+}
+
+.demo-btn:hover {
+    background: #333;
+    color: white;
+    transform: rotate(-1deg) translateY(-2px);
+}
+
+/* Add tape effect to sticky notes */
+.sticky-note::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .notebook-container {
+        flex-direction: column;
+        background: #fff;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #ff6b6b;
+        padding: 20px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .red-margin-line {
+        display: none;
+    }
+    
+    .notebook-container::before {
+        left: 0;
+    }
+    
+    .main-title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .links-container {
+        justify-content: center;
+    }
+    
+    .sticky-notes-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .sticky-note {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        min-height: 350px;
+    }
+    
+    .doodles-footer {
+        margin-top: 20px;
+        padding: 15px 0 5px 0;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .doodle-1 {
+        transform: rotate(-12deg) scale(1.8) !important;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .doodle-2 {
+        transform: rotate(8deg) scale(1.6) !important;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .doodle-3 {
+        transform: rotate(-18deg) scale(1.4) !important;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .doodle-4 {
+        transform: rotate(15deg) scale(1.2) !important;
+        width: 80px;
+        height: 80px;
+    }
+}

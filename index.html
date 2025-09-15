@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JapJaps Portfolio</title>
+    <link rel="icon" type="image/jpg" href="ProfilePortfolio.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <div class="notebook-container">
+        <!-- Left sidebar (notebook margin) -->
+        <div class="sidebar">
+            <div class="profile-sketch">
+                <div class="profile-circle">
+                    <img src="ProfilePortfolio.jpg" alt="Jan Floyd Vallota" class="profile-image">
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <h3 class="nav-title">Navigation</h3>
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link active">About me</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                </ul>
+            </div>
+            
+            <!-- Pencil scribbles -->
+            <div class="pencil-scribbles">
+                <svg width="100%" height="150" viewBox="0 0 240 150" style="position: absolute; bottom: 20px;">
+                    <!-- Wavy doodle lines -->
+                    <path d="M20,30 Q40,10 60,30 T100,30 T140,30" stroke="#333" stroke-width="1.5" fill="none" opacity="0.4"/>
+                    <path d="M30,50 Q50,70 70,50 T110,50 T150,50" stroke="#666" stroke-width="1" fill="none" opacity="0.3"/>
+                    
+                    <!-- Spiral scribble -->
+                    <path d="M180,40 Q190,30 200,40 Q210,50 200,60 Q190,70 180,60 Q170,50 180,40" stroke="#333" stroke-width="1.2" fill="none" opacity="0.4"/>
+                    
+                    <!-- Random squiggles -->
+                    <path d="M40,80 Q50,90 60,80 Q70,70 80,80 Q90,90 100,80" stroke="#555" stroke-width="1" fill="none" opacity="0.3"/>
+                    <path d="M120,90 L130,100 L140,90 L150,100 L160,90" stroke="#333" stroke-width="1.2" fill="none" opacity="0.4"/>
+                    
+                    <!-- Small circles and dots -->
+                    <circle cx="70" cy="110" r="8" stroke="#333" stroke-width="1" fill="none" opacity="0.3"/>
+                    <circle cx="160" cy="120" r="5" stroke="#666" stroke-width="1" fill="none" opacity="0.4"/>
+                    <circle cx="30" cy="120" r="2" fill="#333" opacity="0.4"/>
+                    <circle cx="200" cy="100" r="2" fill="#555" opacity="0.3"/>
+                    <circle cx="100" cy="130" r="1.5" fill="#333" opacity="0.5"/>
+                    
+                    <!-- Arrow doodle -->
+                    <path d="M190,80 L210,80 M205,75 L210,80 L205,85" stroke="#333" stroke-width="1.5" fill="none" opacity="0.4"/>
+                    
+                    <!-- Small star -->
+                    <path d="M50,130 L52,135 L57,135 L53,138 L55,143 L50,140 L45,143 L47,138 L43,135 L48,135 Z" fill="#333" opacity="0.3"/>
+                </svg>
+            </div>
+            
+        </div>
+        
+        <!-- Main content area (notebook paper) -->
+        <div class="main-content">
+            <div class="red-margin-line"></div>
+            
+            <header class="page-header">
+                <h1 class="main-title">JapJaps portfolio</h1>
+            </header>
+            
+            <section id="about" class="content-section">
+                <h2 class="section-title">About me</h2>
+                <p class="about-text">Filipino uni student that likes:</p>
+                <ul class="interests-list">
+                    <li>Backend development</li>
+                    <li>Videogames</li>
+                    <li>Badminton hehe</li>
+                </ul>
+            </section>
+            
+            <section id="projects-page" class="content-section projects-page" style="display: none;">
+                <h2 class="section-title">My Projects</h2>
+                
+                <div class="sticky-notes-container">
+                    <div class="sticky-note yellow-note rotate-left">
+                        <div class="sticky-note-header">
+                            <h3 class="sticky-title">Route-Route Anay</h3>
+                        </div>
+                        <div class="sticky-content">
+                            <div class="project-image-placeholder taped-photo">
+                                <img src="RouteRouteAnay.jpg" alt="Route-Route Anay" class="project-image">
+                            </div>
+                            <p class="sticky-description">A* algorithm-based navigation system optimizing jeepney commute routes, integrating walking distances and fare information for efficient urban mobility.</p>
+                            <div class="sticky-buttons">
+                                <a href="#" class="sticky-btn github-btn">GitHub</a>
+                                <a href="#" class="sticky-btn demo-btn">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sticky-note pink-note rotate-right">
+                        <div class="sticky-note-header">
+                            <h3 class="sticky-title">WEVO</h3>
+                        </div>
+                        <div class="sticky-content">
+                            <div class="project-image-placeholder taped-photo">
+                                <img src="WEVO.jpg" alt="WEVO" class="project-image">
+                            </div>
+                            <p class="sticky-description">Web-based event venue management system for West Visayas State University, solving double bookings with real-time availability and automated reservations.</p>
+                            <div class="sticky-buttons">
+                                <a href="#" class="sticky-btn github-btn">GitHub</a>
+                                <a href="#" class="sticky-btn demo-btn">Try It</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sticky-note green-note rotate-left">
+                        <div class="sticky-note-header">
+                            <h3 class="sticky-title">Gabayani</h3>
+                        </div>
+                        <div class="sticky-content">
+                            <div class="project-image-placeholder taped-photo">
+                                <img src="GabayAni.jpg" alt="Gabayani" class="project-image">
+                            </div>
+                            <p class="sticky-description">AI-powered agriculture chatbot accessible via SMS/Messenger, providing Filipino rice farmers with real-time, localized agricultural advice in Filipino and Hiligaynon.</p>
+                            <div class="sticky-buttons">
+                                <a href="#" class="sticky-btn github-btn">Read Paper</a>
+                                <a href="#" class="sticky-btn demo-btn">Summary</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="links" class="content-section">
+                <h2 class="section-title">Links</h2>
+                <div class="links-container">
+                    <a href="#" class="social-link github-icon" title="GitHub">
+                        <div class="icon-sketch github-sketch"></div>
+                    </a>
+                    <a href="#" class="social-link linkedin-icon" title="LinkedIn">
+                        <div class="icon-sketch linkedin-sketch"></div>
+                    </a>
+                    <a href="#" class="social-link twitter-icon" title="Twitter">
+                        <div class="icon-sketch twitter-sketch"></div>
+                    </a>
+                    <a href="#" class="social-link email-icon" title="Email">
+                        <div class="icon-sketch email-sketch"></div>
+                    </a>
+                </div>
+                
+                <!-- Doodles Footer -->
+                <div class="doodles-footer">
+                    <img src="doodle1-removebg-preview.png" alt="Doodle 1" class="doodle doodle-1">
+                    <img src="doodle2-removebg-preview.png" alt="Doodle 2" class="doodle doodle-2">
+                    <img src="doodle4-removebg-preview.png" alt="Doodle 3" class="doodle doodle-3">
+                    <img src="doodle5-removebg-preview.png" alt="Doodle 4" class="doodle doodle-4">
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    if (targetId === 'projects') {
+                        document.getElementById('projects-page').style.display = 'block';
+                    } else if (targetId === 'about') {
+                        // Show both about section and links section
+                        document.getElementById('about').style.display = 'block';
+                        document.getElementById('links').style.display = 'block';
+                    } else {
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.style.display = 'block';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
